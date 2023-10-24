@@ -10,14 +10,25 @@
   index's. Continue looping through until all values are in ascending order
 */
 
-function bubbleSort(nums) {
+function bubbleSort(unorder_list){
   // code goes here
+  let swapped = true;
+    while (swapped) {
+        swapped = false;
+        for (let i = 0; i < unorder_list.length - 1; i++) {
+            if (unorder_list[i] > unorder_list[i + 1]) {
+                swapped = true;
+                [unorder_list[i], unorder_list[i + 1]] = [unorder_list[i + 1], unorder_list[i]];
+            }
+        }
+}
 }
 
 // unit tests
 // do not modify the below code
-test.skip("bubble sort", function () {
-  const nums = [10, 5, 3, 8, 2, 6, 4, 7, 9, 1];
-  const sortedNums = bubbleSort(nums);
+test("bubble sort", function () {
+  const  unorder_list = [10, 5, 3, 8, 2, 6, 4, 7, 9, 1];
+  const sortedNums = bubbleSort(unorder_list);
   expect(sortedNums).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 });
+
